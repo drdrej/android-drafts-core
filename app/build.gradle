@@ -1,11 +1,21 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories.mavenDeployer {
+        pom.groupId = 'com.touchableheroes.drafts'
+        pom.artifactId = 'drafts-core'
+        pom.version = '0.0.1'
+        repository(url: "file:///home/asiebert/maven-repo/th-dev/")
+    }
+}
 
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 11
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
